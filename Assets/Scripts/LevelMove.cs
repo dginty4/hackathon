@@ -6,11 +6,25 @@ using UnityEngine.SceneManagement;
 public class LevelMove : MonoBehaviour
 {
     int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+    public static int previousScene;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "levelMove")
+        switch (other.gameObject.tag)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+            case "levelMove":
+                UpdatePreviousScene();
+                SceneManager.LoadScene(nextSceneIndex);
+                break;
+            
+            case "terminal":
+                UpdatePreviousScene();
+                SceneManager.LoadScene(nextSceneIndex);
+                break;
         }
+    }
+    
+    private void UpdatePreviousScene()
+    {
+        previousScene = SceneManager.GetActiveScene().buildIndex;
     }
 }
