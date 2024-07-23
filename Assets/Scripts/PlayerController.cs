@@ -8,10 +8,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpPower = 5f;
     public int jumps = 2;
+    public int lives = 3;
     
     // Private variables
-    private bool isMoving;
-    private bool isJumping;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer renderer;
@@ -31,12 +30,6 @@ public class PlayerController : MonoBehaviour
     {
         // Get input from the player
         movement = Input.GetAxisRaw("Horizontal");
-        
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            isMoving = true;
-        
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
-            isMoving = false;
         
         if (Input.GetButtonDown("Jump"))
             Jump();
@@ -67,6 +60,15 @@ public class PlayerController : MonoBehaviour
             jumpCounter = 2;
             animator.SetBool("jumping", false);
         }
+        
+        // Handle touching an obstacle
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
+        {
+            if (lives > 0)
+                lives--;
+            else
+                Debug.Log("Dead"); // TODO: handle dying
+        }
     }
 
     void Move(float dir)
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
             renderer.flipX = true;
             facingRight = false;
         }
-        //If looking left and clicked right (flip to rhe right)
+        //If looking left and clicked right (flip to the right)
         else if(!facingRight && dir > 0)
         {
             renderer.flipX = false;
@@ -90,6 +92,4 @@ public class PlayerController : MonoBehaviour
         
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
     }   
-    
-    
 }
