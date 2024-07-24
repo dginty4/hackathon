@@ -7,7 +7,8 @@ public class Menu_Script : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("BrianSandbox", LoadSceneMode.Single);
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextScene);
     }
 
     public void QuitGame()

@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: bd06627a2e6c14303ae82e41f9b2e2d5
   - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: be4f567fbf8e44cdca00ad89affecb9b
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: c4be29fa52b7a449f8b6e19c4a2d58c6
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: ca8e9d9d2802642e3bc375f17b5ba30d
+  - enabled: 1
     path: Assets/Scenes/BrianSandbox.unity
     guid: 68071f9157d91444ea8ab480af1388b4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level-1.unity
     guid: cd18e5e3b19ed4256bcb5ff8efbc55ad
   - enabled: 1
