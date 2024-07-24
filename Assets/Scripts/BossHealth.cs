@@ -26,6 +26,8 @@ public class BossHealth : MonoBehaviour
             // Player died
             if (healthAmount <= 0)
             {
+                Debug.Log("You Win");
+                    // TODO: What is next??
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             }
     }
