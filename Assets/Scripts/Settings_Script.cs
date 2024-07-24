@@ -38,11 +38,13 @@ public class Settings_Script : MonoBehaviour
     {
         audioMixer.SetFloat("Volume", volume);
     }
+
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
     }
-    public void SetResolution(int index)
+    
+	public void SetResolution(int index)
     {
         Resolution resolution = resolutions[index];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);

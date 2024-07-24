@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelMove : MonoBehaviour
 {
-    int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
     public static int previousScene;
     private void OnTriggerEnter2D(Collider2D other)
     {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         switch (other.gameObject.tag)
         {
             case "levelMove":
