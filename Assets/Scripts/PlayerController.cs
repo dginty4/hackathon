@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpPower = 5f;
     public int jumps = 2;
-    public int lives = 3;
     
     // Private variables
     private Rigidbody2D rb;
@@ -17,6 +18,13 @@ public class PlayerController : MonoBehaviour
     private float movement;
     private bool facingRight;
     private int jumpCounter;
+    
+    // Health Variables
+    public float healthAmount = 100f;
+    public Image HealthBar;
+    private bool canTakeDamage = true;
+    private float damageCooldown = 1f; 
+    
     
     void Start()
     {
@@ -64,10 +72,7 @@ public class PlayerController : MonoBehaviour
         // Handle touching an obstacle
         if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
         {
-            if (lives > 0)
-                lives--;
-            else
-                Debug.Log("Dead"); // TODO: handle dying
+            DamagePlayer(20f);
         }
     }
 
@@ -92,4 +97,38 @@ public class PlayerController : MonoBehaviour
         
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
     }   
+    
+    
+    // Health Functions 
+    public void DamagePlayer(float damage)
+    {
+        if (canTakeDamage)
+        {
+            healthAmount -= damage;
+            HealthBar.fillAmount = healthAmount / 100f;
+
+            // Player died
+            if (healthAmount <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+
+            // Start the cooldown timer
+            StartCoroutine(StartDamageCooldown());
+        }
+    }
+    
+    // Method to Heal Player
+    public void HealPlayer(float health)
+    {
+        healthAmount = 100f;
+        HealthBar.fillAmount = healthAmount / 100f;
+    }
+
+    IEnumerator StartDamageCooldown()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(damageCooldown);
+        canTakeDamage = true;    
+    }
 }
