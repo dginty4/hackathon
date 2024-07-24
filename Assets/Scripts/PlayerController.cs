@@ -70,9 +70,16 @@ public class PlayerController : MonoBehaviour
         }
         
         // Handle touching an obstacle
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
+        if (collision.gameObject.CompareTag("DamagePlayer"))
         {
             DamagePlayer(20f);
+        }
+
+        if (collision.gameObject.CompareTag("DamageBoss"))
+        {
+            
+            Debug.Log("Boss Damaged");
+
         }
     }
 
@@ -98,6 +105,13 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
     }   
     
+    // Damage the boss
+    private void DamageBoss(GameObject boss)
+    {
+        // Implement the boss damage logic here
+        Debug.Log("Boss damaged!");
+        // Example: reduce boss health or trigger damage animation
+    }
     
     // Health Functions 
     public void DamagePlayer(float damage)
