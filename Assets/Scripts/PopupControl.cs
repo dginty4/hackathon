@@ -34,19 +34,19 @@ public class PopupControl : MonoBehaviour
         }
     }
 
-    public void ShowPopup(string message, string buttonMessage) {
+    public void ShowPopup(string message) {
         popupText.text = message;
-        popupPanel.GetComponentInChildren<TMP_Text>().text = buttonMessage;
+        popupPanel.GetComponentInChildren<TMP_Text>().text = "Press enter to continue.";
         popupPanel.SetActive(true);
     }
 
     public void onAnswerSelected(string message, bool correct) {
         answered = true;
+        isCorrect = correct;
         if(correct) {
-            isCorrect = true;
-            ShowPopup(message, "Next Level. Press Enter.");
+            ShowPopup(message);
         } else {
-            ShowPopup(message, "Home. Press Enter");
+            ShowPopup(message);
         }
     }
 }
