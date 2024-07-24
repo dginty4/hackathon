@@ -2047,6 +2047,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 476375178}
+    - target: {fileID: 5271285338501697453, guid: 287220c59359446c1a16a78b937b66c1, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6105056527094450966, guid: 287220c59359446c1a16a78b937b66c1, type: 3}
       propertyPath: m_Size.x
       value: 53
