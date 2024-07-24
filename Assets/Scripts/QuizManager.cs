@@ -128,12 +128,10 @@ public class QuizManager : MonoBehaviour
  
         if (selectedAnswer == correctAnswer)
         {
-            feedbackText.text = "Correct! Hop on for next Level";
-            popupControl.onAnswerSelected("Correct! Hop on for next Level",true);
+            popupControl.onAnswerSelected("Correct!", true);
         }
         else
         {
-            feedbackText.text = "Incorrect! The correct answer was: " + correctAnswer;
             popupControl.onAnswerSelected("Incorrect! The correct answer was: " + correctAnswer, false);
         }
     }

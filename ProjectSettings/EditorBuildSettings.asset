@@ -12,11 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: be4f567fbf8e44cdca00ad89affecb9b
   - enabled: 1
+    path: Assets/Scenes/QuestionScene.unity
+    guid: 8ed1f3481e1da425db04ca29e089b33b
+  - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: c4be29fa52b7a449f8b6e19c4a2d58c6
   - enabled: 1
+    path: Assets/Scenes/QuestionScene 1.unity
+    guid: 8d359d5fabe304eb9a32d83b4d1ef174
+  - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: ca8e9d9d2802642e3bc375f17b5ba30d
+  - enabled: 1
+    path: Assets/Scenes/QuestionScene 2.unity
+    guid: adca05fde9fa944538e2940440daf698
   - enabled: 1
     path: Assets/Scenes/BrianSandbox.unity
     guid: 68071f9157d91444ea8ab480af1388b4
