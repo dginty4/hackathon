@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Computer : MonoBehaviour
 {
     public GameObject pressEnterUI;
+   
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Player") {
             pressEnterUI.SetActive(true);

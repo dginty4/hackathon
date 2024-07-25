@@ -13,6 +13,7 @@ public class SpawnOnCollision : MonoBehaviour
 	bool isFinalButton; 
 	public GameObject boss;
 	public GameObject promptPanel;
+	public GameObject computer;
 
     public void DamageBoss(float damage)
     {
@@ -36,6 +37,7 @@ public class SpawnOnCollision : MonoBehaviour
 				else {
 					Destroy(boss);
 					promptPanel.SetActive(true);
+					computer.SetActive(true);
 				}
             }
         }
