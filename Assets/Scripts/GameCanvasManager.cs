@@ -41,23 +41,35 @@ public class GameCanvasManager : MonoBehaviour
     IEnumerator Intro() {
         Time.timeScale = 0f;
 
+        // Display only the Welcome message
         screen.SetActive(true);
         welcome.SetActive(true);
         instructions.gameObject.SetActive(false);
         go.SetActive(false);
         gameOverScreen.SetActive(false);
 
+        // Wait for n seconds
         yield return new WaitForSecondsRealtime(3);
+
+        // Display only the instructions 
         welcome.SetActive(false);
         instructions.gameObject.SetActive(true);
 
+        // Wait for n seconds 
         yield return new WaitForSecondsRealtime(3);
+
+        // Dislpay only "Go!" 
         instructions.gameObject.SetActive(false);
         go.SetActive(true);
 
+
+        // Wait for n seconds
         yield return new WaitForSecondsRealtime(2);
+
+        // Turn off panel
         screen.SetActive(false);
 
+        // Start game 
         Time.timeScale = 1f;
     }
 
