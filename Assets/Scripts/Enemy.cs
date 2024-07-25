@@ -18,9 +18,9 @@ public class EnemyAI : MonoBehaviour
         
         //Flip the enemy transform to look into the point's direction
         if (goalPoint.transform.position.x > transform.position.x)
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(3, 3, 3);
         else
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-3, 3, 3);
         
         //Move the enemy towards the goal point
         transform.position = Vector2.MoveTowards(transform.position,goalPoint.position,speed*Time.deltaTime);
