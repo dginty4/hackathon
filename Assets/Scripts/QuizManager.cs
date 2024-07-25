@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Web;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -85,12 +86,16 @@ public class QuizManager : MonoBehaviour
         if (quizResponse.results.Count > 0)
         {
             Question question = quizResponse.results[0];
-            questionText.text = question.question;
+            questionText.text = HttpUtility.HtmlDecode(question.question);
             correctAnswer = question.correct_answer;
 
             List<string> options = new List<string>(question.incorrect_answers);
             options.Add(correctAnswer);
             options = options.OrderBy(x => Random.value).ToList();
+
+            for (int i = 0; i < options.Count; i++) {
+                options[i] = HttpUtility.HtmlDecode(options[i]);
+            }
 
             if (options.Count == 4) {
                 option1Button.GetComponentInChildren<TMP_Text>().text = options[0];
