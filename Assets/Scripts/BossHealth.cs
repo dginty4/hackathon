@@ -8,6 +8,7 @@ public class BossHealth : MonoBehaviour
 {
     public float healthAmount = 100f;
     public Image HealthBar;
+	public GameObject boss;
 
     void Update()
     {
@@ -27,7 +28,7 @@ public class BossHealth : MonoBehaviour
             if (healthAmount <= 0)
             {
                 Debug.Log("You Win");
-                    // TODO: What is next??
+				
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             }
     }

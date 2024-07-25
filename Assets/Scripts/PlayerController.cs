@@ -74,13 +74,6 @@ public class PlayerController : MonoBehaviour
         {
             DamagePlayer(20f);
         }
-
-        if (collision.gameObject.CompareTag("DamageBoss"))
-        {
-            
-            Debug.Log("Boss Damaged");
-
-        }
     }
 
     void Move(float dir)
@@ -104,14 +97,6 @@ public class PlayerController : MonoBehaviour
         
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
     }   
-    
-    // Damage the boss
-    private void DamageBoss(GameObject boss)
-    {
-        // Implement the boss damage logic here
-        Debug.Log("Boss damaged!");
-        // Example: reduce boss health or trigger damage animation
-    }
     
     // Health Functions 
     public void DamagePlayer(float damage)
