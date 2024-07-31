@@ -23,6 +23,10 @@ public class Computer : MonoBehaviour
         if (pressEnterUI.activeSelf && Input.GetKeyDown(KeyCode.Return)) {
             int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(nextScene);
+        }        
+		if (pressEnterUI.activeSelf && Input.GetKeyDown(KeyCode.P)) {
+            int nextScene = SceneManager.GetActiveScene().buildIndex + 2;
+            SceneManager.LoadScene(nextScene);
         }
     }
 }
